@@ -1,0 +1,94 @@
+{
+  "tasks": [
+    {
+      "idTask": 1,
+      "title": "Task 1",
+      "description": "Description for Task 1",
+      "notes": "Notes for Task 1",
+      "points": 5,
+      "state": "In Progress",
+      "priority": "High",
+      "type": "Feature",
+      "testerAssigned": "John Doe",
+      "creator": "Jane Smith",
+      "creationDate": "2023-05-01",
+      "conclusionDate": "2023-05-15",
+      "idEmployee": 1,
+      "backupIdEmployee": 2
+    },
+    {
+      "idTask": 2,
+      "title": "Task 2",
+      "description": "Description for Task 2",
+      "notes": "Notes for Task 2",
+      "points": 3,
+      "state": "Pending",
+      "priority": "Medium",
+      "type": "Bug",
+      "testerAssigned": "Sarah Johnson",
+      "creator": "Michael Brown",
+      "creationDate": "2023-05-10",
+      "conclusionDate": null,
+      "idEmployee": 3,
+      "backupIdEmployee": 4
+    },
+    {
+      "idTask": 3,
+      "title": "Task 3",
+      "description": "Description for Task 3",
+      "notes": "",
+      "points": 8,
+      "state": "Completed",
+      "priority": "Low",
+      "type": "Task",
+      "testerAssigned": null,
+      "creator": "Robert Davis",
+      "creationDate": "2023-05-05",
+      "conclusionDate": "2023-05-20",
+      "idEmployee": 2,
+      "backupIdEmployee": null
+    }
+  ],
+
+  "employees": [
+    {
+      "idEmployee": 1,
+      "name": "John Doe",
+      "picture": "https://example.com/johndoe.jpg",
+      "stack": "Full Stack Developer",
+      "technologies": ["Java", "JavaScript", "HTML", "CSS"],
+      "seniority": "Senior",
+      "admin": false,
+      "type": "Permanent",
+      "isWorking": true,
+      "reasonWhyNotWorking": null,
+      "taskAssigned": []
+    },
+    {
+      "idEmployee": 2,
+      "name": "Jane Smith",
+      "picture": "https://example.com/janesmith.jpg",
+      "stack": "Backend Developer",
+      "technologies": ["Java", "Spring Boot", "SQL"],
+      "seniority": "Mid-level",
+      "admin": true,
+      "type": "Permanent",
+      "isWorking": true,
+      "reasonWhyNotWorking": null,
+      "taskAssigned": null
+    },
+    {
+      "idEmployee": 3,
+      "name": "Sarah Johnson",
+      "picture": "https://example.com/sarahjohnson.jpg",
+      "stack": "Frontend Developer",
+      "technologies": ["HTML", "CSS", "JavaScript", "React"],
+      "seniority": "Junior",
+      "admin": false,
+      "type": "Contract",
+      "isWorking": false,
+      "reasonWhyNotWorking": "On vacation",
+      "taskAssigned": []
+    }
+  ]
+}

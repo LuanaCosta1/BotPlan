@@ -1,0 +1,18 @@
+<div class="container">
+  <main class="main">
+    <div class="main__login">
+      <form class="main__login__form">
+        <label for="user">Usuário <input id="user" type="text" placeholder="Digite seu nome de usuário/e-mail" /></label>
+        <label for="password">Senha <input id="password" type="password" placeholder="Digite sua senha" /></label>
+        <button class="main__login__form__login-button" [routerLink]="['/home']">Entrar</button>
+      </form>
+      <p>Não tem uma conta? <span class="sign-link" [routerLink]="['/login/signup']">Cadastre-se</span></p>
+      <div class="divider">
+        <hr class="divider__line">
+          <span class="divider__line__text">ou</span>
+        <hr class="divider__line">
+      </div>
+      <p class="main__login__institutional-link">Entre com a sua <b>Conta Institucional</b></p>
+    </div>
+  </main>
+</div>
