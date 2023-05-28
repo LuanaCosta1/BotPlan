@@ -1,4 +1,16 @@
 .container {
   width: 100%;
   height: 100vh;
+
+  main {
+    width: 79vw;
+    height: 100vh;
+    display: flex;
+
+    nav {
+      width: 20vw;
+      height: 100vh;
+      background-color: #81A4CD;
+    }
+  }
 }

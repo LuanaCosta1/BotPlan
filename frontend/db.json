@@ -90,5 +90,17 @@
       "reasonWhyNotWorking": "On vacation",
       "taskAssigned": []
     }
+  ],
+
+  "authenticationUser": [
+    {
+      "id": 1,
+      "idEmployee": 1,
+      "fullName": "John Doe",
+      "username": "johndoe1",
+      "email": "johndoe1@gmail.com",
+      "password": "xxx123456",
+      "token": null
+    }
   ]
 }

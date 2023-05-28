@@ -1,15 +1,26 @@
 <div class="container">
   <main class="main">
     <div class="main__signin">
-      <form class="main__signin__form">
-        <label for="name">Nome <input id="name" type="text" placeholder="Digite seu nome" /></label>
-        <label for="surname">Sobrenome <input id="surname" type="text" placeholder="Digite seu sobrenome" /></label>
-        <label for="email">E-mail <input id="email" type="email" placeholder="Digite seu e-mail" /></label>
-        <label for="password">Senha <input id="password" type="password" placeholder="Digite sua senha" /></label>
-        <label for="repeat-password">Repita sua senha <input id="repeat-password" type="password" placeholder="Digite sua senha novamente" /></label>
-        <button class="main__signin__form__signin-button">Cadastrar</button>
+      <form class="main__signin__form" [formGroup]="formRegister" (ngSubmit)="onSubmit()">
+        <label for="name">Nome
+          <input id="name" type="text" placeholder="Digite seu nome"  formControlName="firstName"/></label>
+
+        <label for="surname">Sobrenome
+          <input id="surname" type="text" placeholder="Digite seu sobrenome"  formControlName="lastName"/></label>
+
+        <label for="email">E-mail
+          <input id="email" type="email" placeholder="Digite seu e-mail"  formControlName="email"/></label>
+
+        <label for="password">Senha
+          <input id="password" type="password" placeholder="Digite sua senha"  formControlName="password"/></label>
+
+        <label for="repeat-password">Repita sua senha
+          <input id="repeatPassword" type="password" placeholder="Digite sua senha novamente" formControlName="repeatPassword"/></label>
+
+        <button class="main__signin__form__signin-button" type="submit" [disabled]="!formRegister.valid">Cadastrar</button>
       </form>
       <p>Já tem uma conta? <span class="sign-link" [routerLink]="['/login']">Clique aqui para entrar</span></p>
+      <p>Form Status: {{ formRegister.status }}</p>
     </div>
   </main>
 </div>

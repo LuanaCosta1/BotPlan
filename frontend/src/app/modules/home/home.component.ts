@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  modalToogle = false;
 
+  openModal(event: any) {
+    this.modalToogle = true;
+  }
 }
