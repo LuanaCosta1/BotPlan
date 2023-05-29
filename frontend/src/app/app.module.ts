@@ -11,8 +11,6 @@ import { ModalComponent } from './shared/components/modal/modal.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
     ModalComponent,
   ],
   imports: [

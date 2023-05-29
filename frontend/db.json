@@ -1,106 +1,285 @@
 {
-  "tasks": [
+  "projects": [
     {
-      "idTask": 1,
-      "title": "Task 1",
-      "description": "Description for Task 1",
-      "notes": "Notes for Task 1",
-      "points": 5,
-      "state": "In Progress",
-      "priority": "High",
-      "type": "Feature",
-      "testerAssigned": "John Doe",
-      "creator": "Jane Smith",
-      "creationDate": "2023-05-01",
-      "conclusionDate": "2023-05-15",
-      "idEmployee": 1,
-      "backupIdEmployee": 2
-    },
-    {
-      "idTask": 2,
-      "title": "Task 2",
-      "description": "Description for Task 2",
-      "notes": "Notes for Task 2",
-      "points": 3,
-      "state": "Pending",
-      "priority": "Medium",
-      "type": "Bug",
-      "testerAssigned": "Sarah Johnson",
-      "creator": "Michael Brown",
-      "creationDate": "2023-05-10",
-      "conclusionDate": null,
-      "idEmployee": 3,
-      "backupIdEmployee": 4
-    },
-    {
-      "idTask": 3,
-      "title": "Task 3",
-      "description": "Description for Task 3",
-      "notes": "",
-      "points": 8,
-      "state": "Completed",
-      "priority": "Low",
-      "type": "Task",
-      "testerAssigned": null,
-      "creator": "Robert Davis",
-      "creationDate": "2023-05-05",
-      "conclusionDate": "2023-05-20",
-      "idEmployee": 2,
-      "backupIdEmployee": null
+      "projectId": 12345,
+      "projectName": "Sistema de Gestão de Recursos Humanos",
+      "projectDescription": "Desenvolvimento de um sistema web para gerenciar os recursos humanos da empresa, incluindo cadastro de funcionários, controle de folha de pagamento, gestão de benefícios e geração de relatórios.",
+      "startDate": "2023-07-01",
+      "endDate": "2024-01-31",
+      "projectManager": "João Silva",
+      "employeesListId": [
+        1,
+        2,
+        3
+      ],
+      "technologiesUsed": [
+        "Java",
+        "Spring Framework",
+        "React",
+        "MySQL",
+        "HTML",
+        "CSS"
+      ],
+      "status": "Em Andamento",
+      "client": {
+        "clientId": 54321,
+        "clientName": "Empresa XYZ",
+        "contactPerson": "Fernanda Costa",
+        "email": "fernanda@empresa.xyz",
+        "phone": "+55 11 98765-4321"
+      },
+      "backlog": [
+        {
+          "idStory": 1,
+          "title": "Implementar autenticação de usuário",
+          "description": "Adicionar funcionalidade de autenticação de usuário ao sistema",
+          "notes": "Utilizar JWT para gerenciar tokens de autenticação",
+          "points": 5,
+          "priority": "High",
+          "type": "Feature",
+          "creator": "John Doe",
+          "creationDate": "2023-06-01",
+          "idEmployee": null
+        },
+        {
+          "idStory": 2,
+          "title": "Corrigir bug de carregamento lento",
+          "description": "Investigar e corrigir o problema de carregamento lento ao acessar determinada página",
+          "notes": "Verificar o uso excessivo de consultas ao banco de dados",
+          "points": 3,
+          "priority": "Medium",
+          "type": "Bug",
+          "creator": "Jane Smith",
+          "creationDate": "2023-06-02",
+          "idEmployee": null
+        },
+        {
+          "idStory": 3,
+          "title": "Criar página de perfil do usuário",
+          "description": "Desenvolver uma página de perfil do usuário com informações pessoais e histórico de atividades",
+          "notes": "Utilizar biblioteca de componentes UI para agilizar o desenvolvimento",
+          "points": 8,
+          "priority": "High",
+          "type": "Feature",
+          "creator": "Michael Brown",
+          "creationDate": "2023-06-03",
+          "idEmployee": null
+        }
+      ],
+      "sprints": [
+        {
+          "sprintId": 1,
+          "startDate": "2023-06-01",
+          "endDate": "2023-06-15",
+          "goal": "Entregar as principais funcionalidades do sistema",
+          "stories": [
+            {
+              "idStory": 1,
+              "title": "Implementar autenticação de usuário",
+              "description": "Implementar o sistema de autenticação de usuário para permitir o acesso seguro aos recursos da aplicação.",
+              "notes": "Notas para a Tarefa 1",
+              "points": 5,
+              "state": "Em Progresso",
+              "priority": "1",
+              "type": "Funcionalidade",
+              "testerAssigned": "John Doe",
+              "creator": "Jane Smith",
+              "creationDate": "2023-05-01",
+              "conclusionDate": "2023-05-15",
+              "idEmployee": 1,
+              "backupIdEmployee": 2
+            },
+            {
+              "idStory": 2,
+              "title": "Corrigir bug na exibição de dados",
+              "description": "Corrigir o bug que está causando a exibição incorreta dos dados na página principal da aplicação.",
+              "notes": "Notas para a Tarefa 2",
+              "points": 3,
+              "state": "Pendente",
+              "priority": "2",
+              "type": "Bug",
+              "testerAssigned": "Sarah Johnson",
+              "creator": "Michael Brown",
+              "creationDate": "2023-05-10",
+              "conclusionDate": null,
+              "idEmployee": 3,
+              "backupIdEmployee": 4
+            },
+            {
+              "idStory": 3,
+              "title": "Otimizar consulta de banco de dados",
+              "description": "Realizar otimizações na consulta de banco de dados para melhorar o desempenho da aplicação.",
+              "notes": "",
+              "points": 8,
+              "state": "Concluída",
+              "priority": "3",
+              "type": "Tarefa",
+              "testerAssigned": null,
+              "creator": "Robert Davis",
+              "creationDate": "2023-05-05",
+              "conclusionDate": "2023-05-20",
+              "idEmployee": 2,
+              "backupIdEmployee": null
+            },
+            {
+              "idStory": 4,
+              "title": "Implementar funcionalidade de envio de e-mails",
+              "description": "Desenvolver a funcionalidade de envio de e-mails para permitir que os usuários possam receber notificações por e-mail.",
+              "notes": "É necessário integrar com um serviço de envio de e-mails, como o SendGrid.",
+              "points": 6,
+              "state": "Pendente",
+              "priority": "1",
+              "type": "Funcionalidade",
+              "testerAssigned": null,
+              "creator": "John Smith",
+              "creationDate": "2023-06-03",
+              "conclusionDate": null,
+              "idEmployee": 2,
+              "backupIdEmployee": 3
+            },
+            {
+              "idStory": 5,
+              "title": "Refatorar código legado",
+              "description": "Realizar a refatoração do código legado para melhorar a sua manutenibilidade e modularidade.",
+              "notes": "É importante seguir as boas práticas de programação e documentar as alterações realizadas.",
+              "points": 10,
+              "state": "Em Progresso",
+              "priority": "1",
+              "type": "Tarefa",
+              "testerAssigned": null,
+              "creator": "Anna Johnson",
+              "creationDate": "2023-06-05",
+              "conclusionDate": null,
+              "idEmployee": 4,
+              "backupIdEmployee": 5
+            },
+            {
+              "idStory": 6,
+              "title": "Corrigir erro de validação no formulário de cadastro",
+              "description": "Identificar e corrigir o erro de validação que impede o correto funcionamento do formulário de cadastro de usuários.",
+              "notes": "O problema está relacionado à validação dos campos obrigatórios.",
+              "points": 3,
+              "state": "Concluída",
+              "priority": "2",
+              "type": "Bug",
+              "testerAssigned": "Sarah Johnson",
+              "creator": "Michael Brown",
+              "creationDate": "2023-06-07",
+              "conclusionDate": "2023-06-12",
+              "idEmployee": 3,
+              "backupIdEmployee": null
+            },
+            {
+              "idStory": 7,
+              "title": "Adicionar suporte a internacionalização",
+              "description": "Implementar suporte a internacionalização na aplicação para permitir a tradução do conteúdo para diferentes idiomas.",
+              "notes": "Utilizar uma biblioteca de internacionalização, como o react-i18next.",
+              "points": 8,
+              "state": "Pendente",
+              "priority": "3",
+              "type": "Funcionalidade",
+              "testerAssigned": null,
+              "creator": "Emma Davis",
+              "creationDate": "2023-06-10",
+              "conclusionDate": null,
+              "idEmployee": 1,
+              "backupIdEmployee": 2
+            }
+          ]
+        }
+      ]
     }
   ],
-
   "employees": [
     {
-      "idEmployee": 1,
+      "id": "1",
       "name": "John Doe",
       "picture": "https://example.com/johndoe.jpg",
       "stack": "Full Stack Developer",
-      "technologies": ["Java", "JavaScript", "HTML", "CSS"],
+      "technologies": [
+        "Java",
+        "JavaScript",
+        "HTML",
+        "CSS"
+      ],
       "seniority": "Senior",
       "admin": false,
       "type": "Permanent",
       "isWorking": true,
       "reasonWhyNotWorking": null,
-      "taskAssigned": []
+      "taskAssigned": [],
+      "authentication": {
+        "username": "johndoe",
+        "password": "p@ssw0rd123",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNjMwMTYyNzY4LCJleHAiOjE2MzAxNjYzNjh9.43FStWVm73P2x1EWKjfsdA6-Wtq63_HX2pAgUEW4XrA"
+      }
     },
     {
-      "idEmployee": 2,
+      "id": "2",
       "name": "Jane Smith",
       "picture": "https://example.com/janesmith.jpg",
       "stack": "Backend Developer",
-      "technologies": ["Java", "Spring Boot", "SQL"],
+      "technologies": [
+        "Java",
+        "Spring Boot",
+        "SQL"
+      ],
       "seniority": "Mid-level",
       "admin": true,
       "type": "Permanent",
       "isWorking": true,
       "reasonWhyNotWorking": null,
-      "taskAssigned": null
+      "taskAssigned": null,
+      "authentication": {
+        "username": "janesmith",
+        "password": "secretpassword",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gU21pdGgiLCJpYXQiOjE2MzAxNjI3NjgsImV4cCI6MTYzMDE2NjM2OH0.n3tFamkHTYD0G8jHWamzvL77Y6-LzXXs3Kk85WYDzRQ"
+      }
     },
     {
-      "idEmployee": 3,
+      "id": "3",
       "name": "Sarah Johnson",
       "picture": "https://example.com/sarahjohnson.jpg",
       "stack": "Frontend Developer",
-      "technologies": ["HTML", "CSS", "JavaScript", "React"],
+      "technologies": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React"
+      ],
       "seniority": "Junior",
       "admin": false,
       "type": "Contract",
       "isWorking": false,
       "reasonWhyNotWorking": "On vacation",
-      "taskAssigned": []
-    }
-  ],
-
-  "authenticationUser": [
+      "taskAssigned": [],
+      "authentication": {
+        "username": "sarahjohnson",
+        "password": "mysecurepassword",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlNlcnZlciBKb2huc29uIiwiaWF0IjoxNjMwMTYyNzY4LCJleHAiOjE2MzAxNjYzNjh9.NCoUPdfrFWQDo-3vPvBmcM15g4_02KrMNL1YMDFTBG0"
+      }
+    },
     {
-      "id": 1,
-      "idEmployee": 1,
-      "fullName": "John Doe",
-      "username": "johndoe1",
-      "email": "johndoe1@gmail.com",
-      "password": "xxx123456",
-      "token": null
+      "id": "168534000260010633pi",
+      "name": "Luana Costa",
+      "authentication": {
+        "username": "luanacostards",
+        "password": "this.generateId()",
+        "token": ""
+      },
+      "isWorking": true,
+      "admin": false
+    },
+    {
+      "id": "1685340409790fbew1d9",
+      "name": "Luana Costa",
+      "authentication": {
+        "username": "luanacostards",
+        "password": "chars",
+        "token": "OfIxfqA7LM5WicAy1K8wv17KC3gf.zP3"
+      },
+      "isWorking": true,
+      "admin": false
     }
   ]
 }

@@ -16,7 +16,7 @@ export class EmployeeService {
     return this.http.get<EmployeeModel[]>(this.baseUrl);
   }
 
-  public getEmployeeById(id: number): Observable<EmployeeModel> {
+  public getEmployeeById(id: string): Observable<EmployeeModel> {
     return this.http.get<EmployeeModel>(`${this.baseUrl}/${id}`);
   }
 

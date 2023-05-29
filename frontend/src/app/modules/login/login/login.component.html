@@ -1,27 +1,29 @@
 <div class="container">
   <main class="main">
     <div class="main__login">
-      <form class="main__login__form" [formGroup]="formLogin" (ngSubmit)="onSubmit()">
-        <label for="user">Usuário
-          <input id="email" type="email" placeholder="Digite seu nome de usuário/e-mail"
-          formControlName="email"/></label>
-        <label for="password">Senha
-          <input id="password" type="password" placeholder="Digite sua senha" formControlName="password" /></label>
-
-        <button class="main__login__form__login-button" type="submit" [disabled]="!formLogin.valid">Entrar</button>
+      <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="username" class="form-label">Usuário</label>
+          <input type="text" class="form-control" id="username" aria-describedby="username" placeholder="Digite seu nome de usuário/e-mail" formControlName="username">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Senha</label>
+          <input type="password" class="form-control" id="password" placeholder="Digite sua senha" formControlName="password" >
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Entrar</button>
       </form>
 
-      <p *ngIf="messageError">Usuário não encontrado! Caso não tenha conta <span class="sign-link" [routerLink]="['/login/signup']" style="text-decoration: underline;">cadastre-se aqui.</span></p>
+      <p *ngIf="messageError">Usuário não encontrado! Caso não tenha conta <span class="sign-link" [routerLink]="['/login/signup']">cadastre-se aqui.</span></p>
 
       <p *ngIf="!messageError">Não tem uma conta? <span class="sign-link" [routerLink]="['/login/signup']">Cadastre-se</span></p>
 
       <div class="divider">
-        <hr class="divider__line">
           <span class="divider__line__text">ou</span>
-        <hr class="divider__line">
+          <hr class="divider__line">
       </div>
 
-      <p class="main__login__institutional-link">Entre com a sua <b>Conta Institucional</b></p>
+
+      <p class="main__login__institutional-link" [routerLink]="['/home']">Entre com a sua <b>Conta Institucional</b></p>
     </div>
   </main>
 </div>

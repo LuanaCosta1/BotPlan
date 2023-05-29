@@ -1,0 +1,47 @@
+<!-- Lista em tabela -->
+<table
+  class="table caption-top table-borderless table-striped table-hover"
+  *ngIf="displayListView"
+>
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Rank</th>
+      <th scope="col">Título</th>
+      <th scope="col">Descrição</th>
+      <th scope="col">Pontuação</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Prioridade</th>
+      <th scope="col">Tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of backlogList; let i = index">
+      <th scope="row">{{ task.idStory }}</th>
+      <td>{{ task.title }}</td>
+      <td>{{ task.description }}</td>
+      <td>{{ task.points }}</td>
+      <td>{{ task.state }}</td>
+      <td>{{ task.priority }}</td>
+      <td>{{ task.type }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Lista em cards -->
+<div class="board" *ngIf="!displayListView">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let task of backlogList">
+      <div class="card mb-3" [ngClass]="{
+        'border-dark': task.priority == '3',
+        'border-warning ': task.priority == '2',
+        'border-danger ': task.priority == '1'}">
+        <div class="card-header">{{ task.priority }}</div>
+        <div class="card-body">
+          <h5 class="card-title">{{ task.title }}</h5>
+          <p class="card-text">{{ task.description }}</p>
+        </div>
+        <div class="card-footer">{{ task.state }}</div>
+      </div>
+    </div>
+  </div>
+</div>

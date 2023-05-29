@@ -1,26 +1,67 @@
 <div class="container">
   <main class="main">
     <div class="main__signin">
-      <form class="main__signin__form" [formGroup]="formRegister" (ngSubmit)="onSubmit()">
-        <label for="name">Nome
-          <input id="name" type="text" placeholder="Digite seu nome"  formControlName="firstName"/></label>
-
-        <label for="surname">Sobrenome
-          <input id="surname" type="text" placeholder="Digite seu sobrenome"  formControlName="lastName"/></label>
-
-        <label for="email">E-mail
-          <input id="email" type="email" placeholder="Digite seu e-mail"  formControlName="email"/></label>
-
-        <label for="password">Senha
-          <input id="password" type="password" placeholder="Digite sua senha"  formControlName="password"/></label>
-
-        <label for="repeat-password">Repita sua senha
-          <input id="repeatPassword" type="password" placeholder="Digite sua senha novamente" formControlName="repeatPassword"/></label>
-
-        <button class="main__signin__form__signin-button" type="submit" [disabled]="!formRegister.valid">Cadastrar</button>
+      <form class="main__signin__form row g-3" [formGroup]="formRegister" (ngSubmit)="onSubmit()">
+        <div class="col-md-6">
+          <label for="name" class="form-label">Nome</label>
+          <input type="name" class="form-control" id="firstName" placeholder="Digite seu nome"  formControlName="firstName" required>
+          <div class="invalid-feedback">
+            Este campo é obrigatório.
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="surname" class="form-label">Sobrenome</label>
+          <input type="surname" class="form-control" id="lastName" placeholder="Digite seu sobrenome"  formControlName="lastName" required>
+          <div class="invalid-feedback">
+            Este campo é obrigatório.
+          </div>
+        </div>
+        <div class="col-12">
+          <label for="email" class="form-label">E-mail</label>
+          <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail" formControlName="email" required>
+          <div class="invalid-feedback">
+            Este campo é obrigatório.
+          </div>
+        </div>
+        <div class="col-12">
+          <label for="password" class="form-label">Senha</label>
+          <input type="password" class="form-control" id="password" placeholder="Digite sua senha" formControlName="password" required>
+          <div class="invalid-feedback">
+            Este campo é obrigatório.
+          </div>
+        </div>
+        <div class="col-12">
+          <label for="repeatPassword" class="form-label">Repita sua senha</label>
+          <input type="password" class="form-control" id="repeatPassword" placeholder="Digite sua senha novamente" formControlName="repeatPassword" required>
+          <div class="invalid-feedback">
+            Este campo é obrigatório.
+          </div>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary w-100" *ngIf="!loadingRegister">Cadastrar</button>
+          <button class="btn btn-primary" type="button" disabled="" *ngIf="loadingRegister">
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Carregando...
+          </button>
+        </div>
       </form>
       <p>Já tem uma conta? <span class="sign-link" [routerLink]="['/login']">Clique aqui para entrar</span></p>
-      <p>Form Status: {{ formRegister.status }}</p>
+
+      <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
     </div>
   </main>
+</div>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <img src="..." class="rounded me-2" alt="...">
+      <strong class="me-auto">Bootstrap</strong>
+      <small>11 mins ago</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      {{notificationMessage}}
+    </div>
+  </div>
 </div>

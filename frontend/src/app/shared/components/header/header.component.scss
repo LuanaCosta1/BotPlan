@@ -1,9 +1,17 @@
 header {
   width: 100%;
-  height: 90px;
-  position: fixed;
-  top: 0;
-  left: 0;
   background-color: #054b91;
   color: #ffffff;
+
+  nav {
+    background-color: #054A91;
+    font-size: 1.2rem;
+  }
+}
+
+.dropdown-title {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  cursor: pointer;
 }

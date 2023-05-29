@@ -1,66 +1,41 @@
 .container {
-  width: 100%;
+  min-width: 100%;
   height: 100vh;
-  background-color: #81a4cd;
-  background-image: radial-gradient(circle, #dbe4ee 0%, #81a4cd 100%);
+  margin: 0;
+  padding: 0;
+  background-color: #dbe4ee;
+  opacity: 0.8;
+  background-image: repeating-radial-gradient(
+      circle at 0 0,
+      transparent 0,
+      #dbe4ee 20px
+    ),
+    repeating-linear-gradient(#054a9155, #054a91);
+  display: flex;
 }
 
 .main {
-  width: 100%;
+  width: 50%;
   height: 100vh;
+  background-color: #e5e5f7;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 
   &__login {
-    width: 300px;
-    height: fit-content;
-    padding: 2rem;
-    background-color: #fff;
-    box-shadow: 10px 10px 0 #054a91;
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: #054a91;
+    padding: 3rem;
+    width: 100%;
+    margin: 1rem;
 
-    &__form {
+    form {
       margin-bottom: 2rem;
-      label {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        margin-bottom: 2rem;
-
-        input {
-          padding: 10px;
-          border-radius: 0px;
-          border: none;
-          border-bottom: 2px solid #054a91;
-        }
-      }
-
-      &__login-button {
-        cursor: pointer;
-        padding: 0.5rem 1rem;
-        width: 100%;
-        border: none;
-        color: #054a91;
-        font-weight: 500;
-        font-size: 1.1rem;
-        background-color: #dbe4ee;
-        box-shadow: 5px 5px 0 #054a91;
-      }
-
-      &__login-button:hover {
-        background-color: #dbe4ee;
-        box-shadow: 5px 5px 0 #054a91;
-      }
     }
 
     p {
       font-size: 1.1rem;
-      text-align: center;
       font-weight: 400;
+      margin: 0;
 
       .sign-link {
         cursor: pointer;
@@ -81,16 +56,31 @@
 
 .divider {
   width: 100%;
+  height: fit-content;
   display: flex;
   justify-content: center;
   align-items: center;
 
   &__line {
     width: 100%;
-    opacity: .5;
+    opacity: 0.5;
 
     &__text {
-      padding: 1rem;
+      padding-right: 1rem;
     }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .main {
+    width: 100%;
+    height: fit-content;
   }
 }

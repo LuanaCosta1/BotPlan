@@ -1,10 +1,87 @@
-<!-- <app-header></app-header> -->
+<app-header></app-header>
+
 <div class="container">
-  <main>
-    <nav>
-      
-    </nav>
+  <main class="main">
+    <div class="main__content">
+      <header class="main__content__header">
+        <h3>Sprint 1</h3>
+
+        <div class="main__content__header__end">
+          <div class="dropdown">
+            <button
+              class="btn btn-primary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Sprint {{actualSprintId}}
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" (click)="showBacklog = true;">Backlog</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item" (click)="showBacklog = false;">Sprint 2</a></li>
+            </ul>
+          </div>
+          <button
+            type="button"
+            class="btn btn-outline-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#createTask"
+          >
+            Criar uma nova tarefa
+          </button>
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <button
+              type="button"
+              class="btn btn-outline-primary" [ngClass]="{'active': displayListView}"
+              (click)="changeDisplay('listView')"
+            >
+              <img src="../../../assets/images/icon-list.svg" />
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-primary" [ngClass]="{'active': !displayListView}"
+              (click)="changeDisplay('boardView')"
+            >
+              <img src="../../../assets/images/icon-border-all.svg" />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <app-task-list
+        *ngIf="!loadingList && !showBacklog"
+        [displayListView]="displayListView"
+        [taskList]="taskList"
+      ></app-task-list>
+      <app-backlog-list
+      *ngIf="!loadingList && showBacklog"
+      [displayListView]="displayListView"
+      [backlogList]="backlog"></app-backlog-list>
+
+      <div class="d-flex justify-content-center" *ngIf="loadingList">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Carregando...</span>
+        </div>
+      </div>
+    </div>
   </main>
-  <button (click)="openModal($event)"></button>
 </div>
-<!-- <app-footer></app-footer> -->
+
+<div class="modal fade" id="createTask" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="createTaskLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

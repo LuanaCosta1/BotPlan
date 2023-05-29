@@ -1,16 +1,35 @@
 .container {
-  width: 100%;
-  height: 100vh;
+  max-width: 100%;
+  min-height: 90vh;
+  margin: 0;
+  padding: 0;
 
-  main {
-    width: 79vw;
-    height: 100vh;
+  .main {
+    width: 100%;
+    min-height: 90vh;
     display: flex;
 
-    nav {
-      width: 20vw;
-      height: 100vh;
-      background-color: #81A4CD;
+    &__content {
+      padding: 3rem 2rem;
+      width: 100%;
+
+      &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+
+        h3 {
+          margin: 0;
+          font-weight: 600;
+          color: #054A91;
+        }
+
+        &__end {
+          display: flex;
+          gap: 1rem;
+        }
+      }
     }
   }
 }

@@ -1,4 +1,53 @@
 <header>
-  <nav>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-dark sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/home">BotPlan</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul
+          class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+          style="--bs-scroll-height: 100px"
+        >
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle dropdown-title"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img [src]="userPicture" alt="Perfil do usuário">{{userName}}
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item dropdown-title">
+                <img src="../../../assets/images/icon-gear.svg" alt="Perfil do usuário">Configurações</a></li>
+              <li><a class="dropdown-item dropdown-title"  (click)="logout()">
+                <img src="../../../assets/images/icon-box-arrow-in-left.svg" alt="Perfil do usuário">Sair</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex w-50 p-3" role="search">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Pesquisar"
+            aria-label="Pesquisar"
+          />
+          <button class="btn btn-outline-success bg-white" type="submit">
+            <img src="../../../assets/images/icon-search.svg" alt="pesquisar">
+          </button>
+        </form>
+      </div>
+    </div>
   </nav>
+
 </header>
