@@ -10,6 +10,7 @@ import { EmployeeModel } from 'src/app/core/models/employee.model';
 export class HeaderComponent implements OnInit{
   userName = 'Perfil';
   userPicture = '../../../assets/images/icon-person-circle.svg';
+  loadingLogout = false;
 
   constructor(private router: Router) {}
 
@@ -32,6 +33,7 @@ export class HeaderComponent implements OnInit{
     localStorage.clear();
     sessionStorage.clear();
     console.log('router');
-    this.router.navigate(['/login']);
+    this.loadingLogout = true;
+    // setTimeout(() => this.router.navigate(['/login']), 3000)
   }
 }

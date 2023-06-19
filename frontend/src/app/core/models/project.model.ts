@@ -3,7 +3,7 @@ import { SprintModel } from "./sprint.model";
 import { TaskModel } from "./task.model";
 
 export class ProjectModel {
-  "projectId": number;
+  "id": number;
   "projectName": string;
   "projectDescription": string;
   "startDate": string;

@@ -31,4 +31,8 @@ export class EmployeeService {
   public deleteEmployee(id: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/${id}`);
   }
+
+  public getEmployeePicture(username: string): string {
+    return "https://robohash.org/" + username;
+  }
 }

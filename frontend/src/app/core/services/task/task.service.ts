@@ -8,27 +8,27 @@ import { Observable } from 'rxjs';
 })
 export class TaskService {
 
-  baseUrl = "http://localhost:3000/tasks"
+  baseUrl = "http://localhost:3000/projects"
 
   constructor(private http: HttpClient) { }
 
-  public getAllTasks(): Observable<TaskModel[]> {
-    return this.http.get<TaskModel[]>(this.baseUrl);
+  public getAllTasks(idProject: number, idSprint: number): Observable<TaskModel[]> {
+    return this.http.get<TaskModel[]>(`${this.baseUrl}/${idProject}/sprints/${idSprint}/tasks`);
   }
 
-  public getTaskById(id: number): Observable<TaskModel> {
-    return this.http.get<TaskModel>(`${this.baseUrl}/${id}`);
+  public getTaskById(idProject: number, idSprint: number, idStory: number): Observable<TaskModel> {
+    return this.http.get<TaskModel>(`${this.baseUrl}/${idProject}/sprints/${idSprint}/tasks/${idStory}`);
   }
 
-  public addTask(request: TaskModel): Observable<TaskModel> {
-    return this.http.post<TaskModel>(this.baseUrl, request);
+  public addTask(idProject: number, idSprint: number, request: TaskModel): Observable<TaskModel> {
+    return this.http.post<TaskModel>(`${this.baseUrl}/${idProject}/sprints/${idSprint}/tasks`, request);
   }
 
-  public updateTask(request: TaskModel, id: number): Observable<TaskModel> {
-    return this.http.put<TaskModel>(`${this.baseUrl}/${id}`, request);
+  public updateTask(idProject: number, idSprint: number, request: TaskModel, idStory: number): Observable<TaskModel> {
+    return this.http.put<TaskModel>(`${this.baseUrl}/${idProject}/sprints/${idSprint}/tasks/${idStory}`, request);
   }
 
-  public deleteTask(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.baseUrl}/${id}`);
+  public deleteTask(idProject: number, idSprint: number, idStory: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/${idProject}/sprints/${idSprint}/tasks/${idStory}`);
   }
 }

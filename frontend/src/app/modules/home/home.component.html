@@ -14,12 +14,20 @@
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Sprint {{actualSprintId}}
+              Sprint {{ actualSprintId }}
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" (click)="showBacklog = true;">Backlog</a></li>
+              <li>
+                <a class="dropdown-item" (click)="showBacklog = true"
+                  >Backlog</a
+                >
+              </li>
               <li><hr class="dropdown-divider" /></li>
-              <li><a class="dropdown-item" (click)="showBacklog = false;">Sprint 2</a></li>
+              <li>
+                <a class="dropdown-item" (click)="showBacklog = false"
+                  >Sprint 2</a
+                >
+              </li>
             </ul>
           </div>
           <button
@@ -33,14 +41,16 @@
           <div class="btn-group" role="group" aria-label="Basic example">
             <button
               type="button"
-              class="btn btn-outline-primary" [ngClass]="{'active': displayListView}"
+              class="btn btn-outline-primary"
+              [ngClass]="{ active: displayListView }"
               (click)="changeDisplay('listView')"
             >
               <img src="../../../assets/images/icon-list.svg" />
             </button>
             <button
               type="button"
-              class="btn btn-outline-primary" [ngClass]="{'active': !displayListView}"
+              class="btn btn-outline-primary"
+              [ngClass]="{ active: !displayListView }"
               (click)="changeDisplay('boardView')"
             >
               <img src="../../../assets/images/icon-border-all.svg" />
@@ -55,9 +65,10 @@
         [taskList]="taskList"
       ></app-task-list>
       <app-backlog-list
-      *ngIf="!loadingList && showBacklog"
-      [displayListView]="displayListView"
-      [backlogList]="backlog"></app-backlog-list>
+        *ngIf="!loadingList && showBacklog"
+        [displayListView]="displayListView"
+        [backlogList]="backlog"
+      ></app-backlog-list>
 
       <div class="d-flex justify-content-center" *ngIf="loadingList">
         <div class="spinner-border" role="status">
@@ -68,19 +79,107 @@
   </main>
 </div>
 
-<div class="modal fade" id="createTask" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+<div
+  class="modal fade"
+  id="createTask"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="createTaskLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h1 class="modal-title fs-5" id="createTaskLabel">Criar uma story</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="modal-body">
-        ...
+        <form class="row g-3" (ngSubmit)="createNewTask()">
+          <div class="col-12">
+            <label for="taskTitle" class="form-label">Título</label>
+            <input type="text" class="form-control" id="taskTitle" requiredformControlName="title" />
+          </div>
+          <div class="col-12">
+            <label for="taskDescription" class="form-label">Descrição</label>
+            <input
+              type="text"
+              class="form-control"
+              id="taskDescription"
+              formControlName="description"
+              required
+            />
+          </div>
+          <div class="col-md-6">
+            <label for="taskPoints" class="form-label">Pontuação</label>
+            <input type="email" class="form-control" id="taskPoints" formControlName="points"/>
+          </div>
+          <div class="col-md-6">
+            <label for="inputState" class="form-label">Estado</label>
+            <select id="inputState" class="form-select">
+              <option *ngFor="let state of storyStates">
+                {{ state.state }}
+              </option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="inputPriority" class="form-label">Prioridade</label>
+            <select id="inputPriority" class="form-select">
+              <option *ngFor="let priority of storyPriorities">
+                {{ priority.state }}
+              </option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="inputType" class="form-label">Tipo</label>
+            <select id="inputType" class="form-select">
+              <option *ngFor="let type of storyTypes">{{ type.state }}</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="inputStack" class="form-label">Stack</label>
+            <select id="inputStack" class="form-select">
+              <option selected>...</option>
+              <option> Backend </option>
+              <option> Frontend </option>
+              <option> Ambos </option>
+              <option> Outros </option>
+            </select>
+          </div>
+          <div class="story-owner">
+            <div class="col-9">
+              <label for="taskOwner" class="form-label"
+                >Quem irá desenvolver a story?</label
+              >
+              <select id="taskOwner" class="form-select">
+                <option selected>...</option>
+                <option *ngFor="let employee of employeeList" (click)="getEmployeeSelected('{{employee.id}}')">
+                  {{ employee.name }}
+                </option>
+              </select>
+            </div>
+            <div class="col-3">
+              <button type="submit" class="btn btn-primary w-100">Gerar</button>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="taskNotes" class="form-label">Notas</label>
+            <textarea class="form-control" id="taskNotes" rows="3" formControlName="notes"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="taskNotesImages" class="form-label">Adicione exemplos e/ou evidências</label>
+            <input class="form-control" type="file" id="taskNotesImages"  formControlName="taskNotesImages" multiple>
+          </div>
+        </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cancelar
+        </button>
+        <button type="submit" class="btn btn-primary">Salvar</button>
       </div>
     </div>
   </div>

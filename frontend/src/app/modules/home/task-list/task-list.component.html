@@ -1,6 +1,6 @@
 <!-- Lista em tabela -->
 <table
-  class="table caption-top table-borderless table-striped table-hover"
+  class="table caption-top table-borderless table-hover"
   *ngIf="displayListView"
 >
   <thead class="table-dark">
@@ -15,7 +15,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let task of taskList; let i = index">
+    <tr class="task-row" *ngFor="let task of taskList; let i = index" (click)="getTaskSelected(task)">
       <th scope="row">{{ task.idStory }}</th>
       <td>{{ task.title }}</td>
       <td>{{ task.description }}</td>
@@ -30,7 +30,7 @@
 <!-- Lista em cards -->
 <div class="board" *ngIf="!displayListView">
   <div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col" *ngFor="let task of taskList">
+    <div class="col" *ngFor="let task of taskList" (click)="getTaskSelected(task)">
       <div class="card mb-3" [ngClass]="{
         'border-dark': task.priority == '3',
         'border-warning ': task.priority == '2',

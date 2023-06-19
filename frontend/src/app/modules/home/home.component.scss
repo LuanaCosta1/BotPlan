@@ -33,3 +33,11 @@
     }
   }
 }
+
+.story-owner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: .8rem;
+  padding-right: 1.3rem;
+}

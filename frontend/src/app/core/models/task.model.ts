@@ -3,14 +3,14 @@ export class TaskModel {
   "title": string;
   "description": string;
   "notes": string;
-  "points": 5;
+  "points": number;
   "state": string;
   "priority": string;
   "type": string;
-  "testerAssigned": string;
-  "creator": string;
+  "testerAssigned"?: string;
+  "creator"?: string;
   "creationDate": Date;
-  "conclusionDate": Date;
+  "conclusionDate"?: Date;
   "idEmployee": number;
   "backupIdEmployee": number;
 }

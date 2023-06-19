@@ -1,13 +1,13 @@
 {
   "projects": [
     {
-      "projectId": 12345,
+      "id": 1,
       "projectName": "Sistema de Gestão de Recursos Humanos",
       "projectDescription": "Desenvolvimento de um sistema web para gerenciar os recursos humanos da empresa, incluindo cadastro de funcionários, controle de folha de pagamento, gestão de benefícios e geração de relatórios.",
       "startDate": "2023-07-01",
       "endDate": "2024-01-31",
       "projectManager": "João Silva",
-      "employeesListId": [
+    "employeesListId": [
         1,
         2,
         3
@@ -191,6 +191,29 @@
     }
   ],
   "employees": [
+    {
+      "id": "0",
+      "name": "João Silva",
+      "picture": "https://example.com/joaosilva.jpg",
+      "stack": "Full Stack Developer",
+      "technologies": [
+        "Java",
+        "TypeScript",
+        "HTML",
+        "CSS"
+      ],
+      "seniority": "Anchor",
+      "admin": true,
+      "type": "Permanent",
+      "isWorking": true,
+      "reasonWhyNotWorking": null,
+      "taskAssigned": [],
+      "authentication": {
+        "username": "joaosilva",
+        "password": "p@ssw0rd123",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNjMwMTYyNzY4LCJleHAiOjE2MzAxNjOJSAIA.43FStWVm73P2x1EWKjfsdA6-Wtq63_HX2pAgUEW4XrA"
+      }
+    },
     {
       "id": "1",
       "name": "John Doe",

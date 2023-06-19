@@ -55,6 +55,15 @@ export class LoginComponent {
     }
   }
 
+  loginAdmin() {
+    this.employeeService.getEmployeeById('0').subscribe((e) => {
+      this.userToLogin = e;
+      this.userToLogin.picture = this.employeeService.getEmployeePicture('aa');
+      sessionStorage.setItem('user', JSON.stringify(this.userToLogin));
+      this.router.navigate(['/home'])
+    });
+  }
+
   login(username: string, password: string): boolean {
     const employee = this.findEmployeeByUsername(username);
     if (employee && employee.authentication?.authenticate(username, password)) {
@@ -80,11 +89,9 @@ export class LoginComponent {
 
   private findEmployeeByUsername(username: string): EmployeeModel | undefined {
     this.employeeService.getAllEmployees().subscribe((employeesList) => {
-      return employeesList.find(
-        (employee) => {
-          (employee.authentication?.getUsername()) == username
-        }
-      );
+      return employeesList.find((employee) => {
+        employee.authentication?.getUsername() == username;
+      });
     });
     return undefined;
   }
