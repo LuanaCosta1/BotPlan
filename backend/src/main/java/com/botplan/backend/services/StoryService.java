@@ -1,7 +1,7 @@
-package com.backend.BotPlan.services;
+package com.botplan.backend.services;
 
-import com.backend.BotPlan.entity.Story;
-import com.backend.BotPlan.repository.StoryRepository;
+import com.botplan.backend.entity.Story;
+import com.botplan.backend.repository.StoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

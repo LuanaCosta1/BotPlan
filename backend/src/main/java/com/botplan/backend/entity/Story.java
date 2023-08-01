@@ -1,4 +1,4 @@
-package com.backend.BotPlan.entity;
+package com.botplan.backend.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -9,8 +9,6 @@ import java.util.Date;
 @Table(name="stories")
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class Story {
 
     @Id

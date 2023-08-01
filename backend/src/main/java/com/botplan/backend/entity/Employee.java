@@ -1,4 +1,4 @@
-package com.backend.BotPlan.entity;
+package com.botplan.backend.entity;
 
 
 import jakarta.persistence.*;

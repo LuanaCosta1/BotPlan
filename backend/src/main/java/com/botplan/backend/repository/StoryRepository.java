@@ -1,6 +1,6 @@
-package com.backend.BotPlan.repository;
+package com.botplan.backend.repository;
 
-import com.backend.BotPlan.entity.Story;
+import com.botplan.backend.entity.Story;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface StoryRepository extends JpaRepository<Story, Long> {

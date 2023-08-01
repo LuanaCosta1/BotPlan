@@ -1,9 +1,9 @@
-package com.backend.BotPlan.controller;
+package com.botplan.backend.controller;
 
 
-import com.backend.BotPlan.entity.Story;
-import com.backend.BotPlan.repository.StoryRepository;
-import com.backend.BotPlan.services.StoryService;
+import com.botplan.backend.entity.Story;
+import com.botplan.backend.repository.StoryRepository;
+import com.botplan.backend.services.StoryService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
