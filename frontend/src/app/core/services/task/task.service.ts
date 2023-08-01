@@ -8,12 +8,12 @@ import { Observable } from 'rxjs';
 })
 export class TaskService {
 
-  baseUrl = "http://localhost:3000/projects"
+  baseUrl = "http://localhost:8080"
 
   constructor(private http: HttpClient) { }
 
-  public getAllTasks(idProject: number, idSprint: number): Observable<TaskModel[]> {
-    return this.http.get<TaskModel[]>(`${this.baseUrl}/${idProject}/sprints/${idSprint}/tasks`);
+  public getAllTasks(): Observable<TaskModel[]> {
+    return this.http.get<TaskModel[]>(`${this.baseUrl}/`);
   }
 
   public getTaskById(idProject: number, idSprint: number, idStory: number): Observable<TaskModel> {

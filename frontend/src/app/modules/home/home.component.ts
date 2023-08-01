@@ -5,6 +5,7 @@ import { EmployeeModel } from 'src/app/core/models/employee.model';
 import { TaskModel } from 'src/app/core/models/task.model';
 import { EmployeeService } from 'src/app/core/services/employee/employee.service';
 import { ProjectService } from 'src/app/core/services/projects/project.service';
+import { TaskService } from 'src/app/core/services/task/task.service';
 import { storyPriorities, storyStates, storyTypes } from 'src/app/utils/utils';
 
 @Component({
@@ -29,6 +30,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private projectService: ProjectService,
     private router: Router,
+    private taskService: TaskService,
     private employeeService: EmployeeService,
     private fb: FormBuilder
   ) {
@@ -66,14 +68,29 @@ export class HomeComponent implements OnInit {
     this.projectService.getAll().subscribe({
       next: (projectList) => {
         projectList.forEach((project) => {
-          this.taskList = project.sprints[this.actualSprintId - 1].stories;
           this.backlog = project.backlog;
         });
       },
       complete: () => {
+        this.getAllStories();
         setTimeout(() => {
           this.loadingList = false;
         }, 1000);
+      },
+    });
+  }
+
+  getAllStories() {
+    this.loadingList = true;
+    this.taskService.getAllTasks().subscribe({
+      next: (response) => {
+        console.log(response);
+        if (response) {
+          this.taskList = response;
+        }
+      },
+      complete: () => {
+        this.loadingList = false;
       },
     });
   }
@@ -85,36 +102,31 @@ export class HomeComponent implements OnInit {
   }
 
   createNewTask() {
-
-
-    console.log(this.createTaskForm);
-
     this.newTask = {
-      "idStory": 1,
-      "title": this.createTaskForm.get('title')?.value as string,
-      "description": this.createTaskForm.get('description')?.value as string,
-      "notes": this.createTaskForm.get('notes')?.value as string,
-      "points": Number(this.createTaskForm.get('points')?.value),
-      "state": this.createTaskForm.get('state')?.value as string,
-      "priority": this.createTaskForm.get('priority')?.value as string,
-      "type": this.createTaskForm.get('type')?.value as string,
-      "testerAssigned": undefined,
-      "creator": undefined,
-      "creationDate": new Date(),
-      "conclusionDate": undefined,
-      "idEmployee": 1,
-      "backupIdEmployee": 1,
-    }
+      idStory: 1,
+      title: this.createTaskForm.get('title')?.value as string,
+      description: this.createTaskForm.get('description')?.value as string,
+      notes: this.createTaskForm.get('notes')?.value as string,
+      points: Number(this.createTaskForm.get('points')?.value),
+      state: this.createTaskForm.get('state')?.value as string,
+      priority: this.createTaskForm.get('priority')?.value as string,
+      type: this.createTaskForm.get('type')?.value as string,
+      testerAssigned: undefined,
+      creator: undefined,
+      creationDate: new Date(),
+      conclusionDate: undefined,
+      idEmployee: 1,
+      backupIdEmployee: 1,
+    };
   }
 
   getEmployeeSelected(id: string) {
     console.log(id);
     this.employeeService.getEmployeeById(id).subscribe((employee) => {
       console.log(employee);
-    })
+    });
   }
 }
-
 
 export interface StateModel {
   value: number;
