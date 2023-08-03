@@ -4,9 +4,13 @@ package com.botplan.backend.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
+@Builder
 @Table(name="employees")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Employee {
@@ -18,11 +22,11 @@ public class Employee {
     private String name;
     private String picture;
     private String stack;
-    private String technologies;
+    private List<String> technologies;
     private String seniority;
     private boolean admin;
     private String type;
     private boolean isWorking;
     private String reasonWhyNotWorking;
-    private String taskAssigned;
+    private List<Integer> taskAssigned;
 }

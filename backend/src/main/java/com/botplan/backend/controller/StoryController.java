@@ -12,12 +12,12 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
+@RequestMapping("stories")
 @CrossOrigin(origins = "*")
 public class StoryController {
 
     @Autowired
     private StoryService storyService;
-    private StoryRepository storyRepository;
 
     @PostMapping("/")
     public Story add(@RequestBody Story story){
