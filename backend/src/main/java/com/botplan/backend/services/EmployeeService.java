@@ -1,12 +1,15 @@
 package com.botplan.backend.services;
 
+import com.botplan.backend.dto.EmployeeDTO;
 import com.botplan.backend.entity.Employee;
 import com.botplan.backend.entity.Story;
+import com.botplan.backend.mapper.EmployeeMapper;
 import com.botplan.backend.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class EmployeeService {
@@ -14,18 +17,21 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    public Employee getEmployee(Long id){
-        return employeeRepository.findByIdEmployee(id);
-    }
-    public Employee addEmployee(Employee employee){
-        return employeeRepository.save(employee);
+    public EmployeeDTO getEmployee(Long id){
+        return EmployeeMapper.toDto(employeeRepository.findByIdEmployee(id));
     }
 
-    public List<Employee> getAllEmployees(){
-        return employeeRepository.findAll();
+    public EmployeeDTO addEmployee(Employee employee){
+        return EmployeeMapper.toDto(employeeRepository.save(employee));
     }
 
-    public Employee updateStory(Employee employee, Long id){
+    public List<EmployeeDTO> getAllEmployees(){
+        return employeeRepository.findAll().stream()
+                .map(EmployeeMapper::toDto)
+                .collect(Collectors.toList());
+    }
+
+    public EmployeeDTO updateStory(Employee employee, Long id){
         Employee entity = employeeRepository.findByIdEmployee(id);
         entity.setName(employee.getName());
         entity.setPicture(employee.getPicture());
@@ -37,7 +43,7 @@ public class EmployeeService {
         entity.setWorking(employee.isWorking());
         entity.setReasonWhyNotWorking(employee.getReasonWhyNotWorking());
         entity.setTaskAssigned(employee.getTaskAssigned());
-        return employeeRepository.save(entity);
+        return EmployeeMapper.toDto(employeeRepository.save(entity));
     }
 
     public void deleteEmployee(Long id) {

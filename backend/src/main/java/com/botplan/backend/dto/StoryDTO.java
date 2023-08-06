@@ -1,22 +1,15 @@
-package com.botplan.backend.entity;
+package com.botplan.backend.dto;
 
-import jakarta.persistence.*;
-import lombok.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import lombok.Builder;
+import lombok.Data;
 
 import java.util.Date;
 
-@Entity
 @Builder
-@Table(name="stories")
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class Story {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idTask;
-
+public class StoryDTO {
     private String title;
     private String description;
     private String notes;
@@ -30,5 +23,4 @@ public class Story {
     private Date conclusionDate;
     private Long idEmployee;
     private Long backupIdEmployee;
-
 }

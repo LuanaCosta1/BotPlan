@@ -1,6 +1,8 @@
 package com.botplan.backend.controller;
 
+import com.botplan.backend.dto.EmployeeDTO;
 import com.botplan.backend.entity.Employee;
+import com.botplan.backend.response.BaseResponse;
 import com.botplan.backend.services.EmployeeService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,21 +20,36 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @PostMapping("/")
-    public Employee add(@RequestBody Employee employee){
-        return employeeService.addEmployee(employee);
+    public BaseResponse<EmployeeDTO> add(@RequestBody Employee employee){
+        return BaseResponse.<EmployeeDTO>builder()
+                .httpCode(200)
+                .message("OK")
+                .response(employeeService.addEmployee(employee)).build();
     }
 
     @GetMapping("/")
-    public List<Employee> selectAll(){
-        return employeeService.getAllEmployees();
+    public BaseResponse<List<EmployeeDTO>> selectAll(){
+        return BaseResponse.<List<EmployeeDTO>>builder()
+                .httpCode(200)
+                .message("OK")
+                .response(employeeService.getAllEmployees()).build();
     }
 
     @GetMapping("/{id}")
-    public Employee getEmployee(@PathVariable("id") Long id) { return employeeService.getEmployee(id); }
+    public BaseResponse<EmployeeDTO> getEmployee(@PathVariable("id") Long id) {
+        return BaseResponse.<EmployeeDTO>builder()
+                .httpCode(200)
+                .message("OK")
+                .response(employeeService.getEmployee(id))
+                .build();
+    }
 
     @PutMapping("/{id}")
-    public Employee update(@RequestBody Employee employee, @PathVariable("id") Long id){
-        return employeeService.updateStory(employee, id);
+    public BaseResponse<EmployeeDTO> update(@RequestBody Employee employee, @PathVariable("id") Long id){
+        return BaseResponse.<EmployeeDTO>builder()
+                .httpCode(200)
+                .message("OK")
+                .response(employeeService.updateStory(employee, id)).build();
     }
 
     @DeleteMapping("/{id}")
