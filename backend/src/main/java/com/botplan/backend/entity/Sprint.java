@@ -14,9 +14,9 @@ import java.util.List;
 public class Sprint {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long sprintId;
     private String startDate;
     private String endDate;
     private String goal;
-    private List<Story> stories;
 }

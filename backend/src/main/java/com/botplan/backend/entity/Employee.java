@@ -1,6 +1,5 @@
 package com.botplan.backend.entity;
 
-
 import jakarta.persistence.*;
 import lombok.*;
 

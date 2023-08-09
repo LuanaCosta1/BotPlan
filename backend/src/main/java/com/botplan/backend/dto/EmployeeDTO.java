@@ -1,6 +1,5 @@
 package com.botplan.backend.dto;
 
-import jakarta.persistence.Column;
 import lombok.Builder;
 import lombok.Data;
 

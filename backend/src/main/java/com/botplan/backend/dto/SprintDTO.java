@@ -1,6 +1,5 @@
 package com.botplan.backend.dto;
 
-import com.botplan.backend.entity.Story;
 import lombok.Builder;
 import lombok.Data;
 
@@ -13,5 +12,4 @@ public class SprintDTO {
     private String startDate;
     private String endDate;
     private String goal;
-    private List<Story> stories;
 }

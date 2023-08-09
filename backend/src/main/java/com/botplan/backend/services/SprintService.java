@@ -17,7 +17,7 @@ public class SprintService {
     private SprintRepository sprintRepository;
 
     public SprintDTO getSprint(Long id){
-        return SprintMapper.toDto(sprintRepository.findSprintbyId(id));
+        return SprintMapper.toDto(sprintRepository.findBySprintId(id));
     }
 
     public SprintDTO addSprint(Sprint sprint){
@@ -31,7 +31,7 @@ public class SprintService {
     }
 
     public SprintDTO updateSprint(Sprint sprint, Long id){
-        Sprint entity = sprintRepository.findSprintbyId(id);
+        Sprint entity = sprintRepository.findBySprintId(id);
         sprint.setSprintId(entity.getSprintId());
         sprint.setStartDate(entity.getStartDate());
         sprint.setEndDate(entity.getEndDate());
@@ -40,7 +40,7 @@ public class SprintService {
     }
 
     public void deleteSprint(Long id) {
-        Sprint entity = sprintRepository.findSprintbyId(id);
+        Sprint entity = sprintRepository.findBySprintId(id);
         sprintRepository.delete(entity);
     }
 }
