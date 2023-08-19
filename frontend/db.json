@@ -7,11 +7,7 @@
       "startDate": "2023-07-01",
       "endDate": "2024-01-31",
       "projectManager": "João Silva",
-    "employeesListId": [
-        1,
-        2,
-        3
-      ],
+      "employeesListId": [1, 2, 3],
       "technologiesUsed": [
         "Java",
         "Spring Framework",
@@ -196,12 +192,7 @@
       "name": "João Silva",
       "picture": "https://example.com/joaosilva.jpg",
       "stack": "Full Stack Developer",
-      "technologies": [
-        "Java",
-        "TypeScript",
-        "HTML",
-        "CSS"
-      ],
+      "technologies": ["Java", "TypeScript", "HTML", "CSS"],
       "seniority": "Anchor",
       "admin": true,
       "type": "Permanent",
@@ -219,12 +210,7 @@
       "name": "John Doe",
       "picture": "https://example.com/johndoe.jpg",
       "stack": "Full Stack Developer",
-      "technologies": [
-        "Java",
-        "JavaScript",
-        "HTML",
-        "CSS"
-      ],
+      "technologies": ["Java", "JavaScript", "HTML", "CSS"],
       "seniority": "Senior",
       "admin": false,
       "type": "Permanent",
@@ -242,11 +228,7 @@
       "name": "Jane Smith",
       "picture": "https://example.com/janesmith.jpg",
       "stack": "Backend Developer",
-      "technologies": [
-        "Java",
-        "Spring Boot",
-        "SQL"
-      ],
+      "technologies": ["Java", "Spring Boot", "SQL"],
       "seniority": "Mid-level",
       "admin": true,
       "type": "Permanent",
@@ -264,12 +246,7 @@
       "name": "Sarah Johnson",
       "picture": "https://example.com/sarahjohnson.jpg",
       "stack": "Frontend Developer",
-      "technologies": [
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "React"
-      ],
+      "technologies": ["HTML", "CSS", "JavaScript", "React"],
       "seniority": "Junior",
       "admin": false,
       "type": "Contract",

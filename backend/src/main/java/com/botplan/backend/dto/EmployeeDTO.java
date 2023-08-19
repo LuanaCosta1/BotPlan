@@ -1,5 +1,6 @@
 package com.botplan.backend.dto;
 
+import com.botplan.backend.entity.Project;
 import lombok.Builder;
 import lombok.Data;
 
@@ -18,4 +19,6 @@ public class EmployeeDTO {
     private boolean isWorking;
     private String reasonWhyNotWorking;
     private List<Integer> taskAssigned;
+
+    private List<Project> projects;
 }

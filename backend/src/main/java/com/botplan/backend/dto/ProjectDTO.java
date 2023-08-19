@@ -1,10 +1,6 @@
 package com.botplan.backend.dto;
 
 import com.botplan.backend.entity.Sprint;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
 import lombok.Builder;
 import lombok.Data;
 

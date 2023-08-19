@@ -32,6 +32,11 @@ public class Project {
     private List<String> technologiesUsed;
 
     private String status;
+
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private Client client;
+
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "project_id")
     private List<Sprint> sprints;

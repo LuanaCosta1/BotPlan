@@ -49,14 +49,13 @@ public class SprintController {
                 .build();
     }
 
+
     @PutMapping("/{id}")
-    public BaseResponse<SprintDTO> update(@RequestBody Sprint sprint, @PathVariable("id") Long id) {
-        SprintDTO updatedSprint = sprintService.updateSprint(sprint, id);
+    public BaseResponse<SprintDTO> update(@RequestBody Sprint sprint, @PathVariable("id") Long id){
         return BaseResponse.<SprintDTO>builder()
                 .httpCode(200)
                 .message("OK")
-                .response(updatedSprint)
-                .build();
+                .response(sprintService.updateSprint(sprint, id)).build();
     }
 
     @DeleteMapping("/{id}")

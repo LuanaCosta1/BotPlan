@@ -19,4 +19,8 @@ public class Sprint {
     private String startDate;
     private String endDate;
     private String goal;
+    @ManyToOne
+    @JoinColumn(name = "project_id")
+    private Project project;
+
 }

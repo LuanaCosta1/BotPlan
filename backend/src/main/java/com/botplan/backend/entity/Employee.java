@@ -15,7 +15,7 @@ import java.util.List;
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idEmployee;
+    private Long id;
 
     @Column(nullable = false)
     private String name;
@@ -28,4 +28,8 @@ public class Employee {
     private boolean isWorking;
     private String reasonWhyNotWorking;
     private List<Integer> taskAssigned;
+    private String username;
+    private String password;
+    private String token;
+
 }

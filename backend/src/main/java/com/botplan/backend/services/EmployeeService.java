@@ -17,7 +17,7 @@ public class EmployeeService {
     private EmployeeRepository employeeRepository;
 
     public EmployeeDTO getEmployee(Long id){
-        return EmployeeMapper.toDto(employeeRepository.findByIdEmployee(id));
+        return EmployeeMapper.toDto(employeeRepository.findEmployeeById(id));
     }
 
     public EmployeeDTO addEmployee(Employee employee){
@@ -31,7 +31,7 @@ public class EmployeeService {
     }
 
     public EmployeeDTO updateStory(Employee employee, Long id){
-        Employee entity = employeeRepository.findByIdEmployee(id);
+        Employee entity = employeeRepository.findEmployeeById(id);
         entity.setName(employee.getName());
         entity.setPicture(employee.getPicture());
         entity.setStack(employee.getStack());
@@ -46,7 +46,7 @@ public class EmployeeService {
     }
 
     public void deleteEmployee(Long id) {
-        Employee entity = employeeRepository.findByIdEmployee(id);
+        Employee entity = employeeRepository.findEmployeeById(id);
         employeeRepository.delete(entity);
     }
 
