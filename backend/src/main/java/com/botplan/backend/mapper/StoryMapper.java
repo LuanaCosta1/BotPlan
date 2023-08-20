@@ -38,6 +38,7 @@ public class StoryMapper {
                 .conclusionDate(entity.getConclusionDate())
                 .employee(entity.getEmployee())
                 .backupEmployee(entity.getBackupEmployee())
+                .sprint(SprintMapper.toDto(entity.getSprint()))
                 .build();
     }
 }

@@ -26,7 +26,7 @@ public class SprintService {
 
     public List<SprintDTO> getAllSprints(){
         return sprintRepository.findAll().stream()
-                .map(SprintMapper::toDto)
+                .map(SprintMapper::toSprintStoriesDto)
                 .collect(Collectors.toList());
     }
 
@@ -36,6 +36,7 @@ public class SprintService {
         sprint.setStartDate(entity.getStartDate());
         sprint.setEndDate(entity.getEndDate());
         sprint.setGoal(entity.getGoal());
+        sprint.setStories(entity.getStories());
         return SprintMapper.toDto(sprintRepository.save(entity));
     }
 

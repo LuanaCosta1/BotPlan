@@ -30,7 +30,9 @@ public class Story {
     private String state;
     private String testerAssigned;
     private Date conclusionDate;
-
+    @ManyToOne
+    @JoinColumn(name = "sprint_id", referencedColumnName = "id")
+    private Sprint sprint;
     @ManyToOne
     @JoinColumn(name = "id_employee")
     private Employee employee;

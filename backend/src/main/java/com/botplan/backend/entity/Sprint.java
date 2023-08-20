@@ -23,4 +23,7 @@ public class Sprint {
     @JoinColumn(name = "project_id")
     private Project project;
 
+    @OneToMany(mappedBy = "stories", cascade = CascadeType.ALL)
+    private List<Sprint> stories;
+
 }
