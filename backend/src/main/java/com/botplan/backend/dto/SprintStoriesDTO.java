@@ -7,9 +7,9 @@ import java.util.List;
 
 @Data
 @SuperBuilder
-@AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(callSuper = false) // Add this line
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper = false)
 public class SprintStoriesDTO extends SprintDTO {
     private List<StoryDTO> stories;
 }
