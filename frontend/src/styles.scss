@@ -8,19 +8,59 @@
 $primary: #054A91;
 $light-primary-color: #3E7CB1;
 $lightest-primary-color: #81A4CD;
-$bg-color: #DBE4EE;
+$bg-color: #EDF5FF;
 $highlight-color: #F17300;
-$gradient: linear-gradient(160deg, #81a4cd 0%, #dbe4ee 100%);
-
-
+$gradient: linear-gradient(160deg, #81a4cd 0%, #EDF5FF 100%);
 $primary-font: 'Roboto', sans-serif;
+
+
+@font-face {
+  font-family: montserrat_regular;
+  src: url(assets/fonts/Montserrat-Regular.ttf);
+}
+
+@font-face {
+  font-family: montserrat_bold;
+  src: url(assets/fonts/Montserrat-Bold.ttf);
+}
+
+@font-face {
+  font-family: montserrat_semibold;
+  src: url(assets/fonts/Montserrat-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: montserrat_light;
+  src: url(assets/fonts/Montserrat-Light.ttf);
+}
+
+@font-face {
+  font-family: openSans_regular;
+  src: url(assets/fonts/OpenSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: openSans_bold;
+  src: url(assets/fonts/OpenSans-Bold.ttf);
+}
+
+@font-face {
+  font-family: openSans_semibold;
+  src: url(assets/fonts/OpenSans-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: openSans_light;
+  src: url(assets/fonts/OpenSans-Light.ttf);
+}
 
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
 }
 
-body {
-  background-color: #DBE4EE;
+html, body {
+  min-width: 100%;
+  width: 100%;
+  background-color: #EDF5FF;
 }

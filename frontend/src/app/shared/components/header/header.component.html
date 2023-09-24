@@ -1,35 +1,13 @@
-<header>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-dark sticky-top">
-    <div class="container-fluid navbar-display-flex">
+<!-- <header>
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container-fluid">
       <a class="navbar-brand" href="/home">BotPlan</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarScroll"
-        aria-controls="navbarScroll"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse navbar-end" id="navbarScroll">
-        <form class="d-flex p-3 w-50" role="search">
-          <input
-            class="form-control me-2"
-            type="search"
-            placeholder="Pesquisar"
-            aria-label="Pesquisar"
-          />
-          <button class="btn btn-outline-success bg-white" type="submit">
-            <img src="../../../assets/images/icon-search.svg" alt="pesquisar">
-          </button>
-        </form>
-        <ul
-          class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
-          style="--bs-scroll-height: 100px"
-        >
-          <li class="nav-item dropdown">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown w-50">
             <a
               class="nav-link dropdown-toggle dropdown-title"
               role="button"
@@ -46,10 +24,63 @@
             </ul>
           </li>
         </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn bg-white me-3" type="submit">
+            <img src="../../../assets/images/icon-search.svg" alt="pesquisar">
+          </button>
+        </form>
       </div>
     </div>
   </nav>
-
 </header>
 
 <app-loading-full-screen [loading]="loadingLogout"></app-loading-full-screen>
+ -->
+
+<header>
+  <nav>
+    <div class="nav-title">
+      <a class="navbar-brand" href="/home">BotPlan</a>
+    </div>
+    <div class="nav-tabs">
+      <a href="">Link</a><hr>
+      <a href="">Link</a><hr>
+      <a href="">Link</a><hr>
+      <a href="">Link</a>
+    </div>
+    <div class="nav-search">
+      <input
+        class="nav-search__input"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <button class="nav-search__button" type="submit">
+        <img src="../../../assets/images/icon-search.svg" alt="pesquisar" />
+      </button>
+    </div>
+    <div class="nav-user">
+      <div class="nav-user__dropdown">
+        <a
+          class="nav-link dropdown-toggle dropdown-title"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img
+            class="user-picture"
+            [src]="userPicture"
+            alt="Perfil do usuário"
+          />{{ userName }}
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="/perfil">Perfil</a></li>
+          <li><a class="dropdown-item" href="/config">Configurações</a></li>
+          <li><hr class="dropdown-divider" /></li>
+          <li><a class="dropdown-item" (click)="logout()">Sair</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

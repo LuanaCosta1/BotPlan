@@ -1,0 +1,20 @@
+table {
+  background-color: white;
+  border-radius: 20px;
+  padding: 1rem;
+
+  thead tr {
+    background-color: #0070FF;
+    color: white;
+    font-family: 'montserrat_semibold', sans-serif;
+    border-radius: 20px;
+
+    th:first-child {
+      border-radius: 20px 0 0 0;
+    }
+
+    th:last-child {
+      border-radius: 0 20px 0 0;
+    }
+  }
+}

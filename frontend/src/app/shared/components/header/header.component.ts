@@ -11,6 +11,7 @@ export class HeaderComponent implements OnInit{
   userName = 'Perfil';
   userPicture = '../../../assets/images/icon-person-circle.svg';
   loadingLogout = false;
+  search = "";
 
   constructor(private router: Router) {}
 
@@ -32,8 +33,7 @@ export class HeaderComponent implements OnInit{
   logout() {
     localStorage.clear();
     sessionStorage.clear();
-    console.log('router');
+    this.router.navigate(["/"]);
     this.loadingLogout = true;
-    // setTimeout(() => this.router.navigate(['/login']), 3000)
   }
 }
